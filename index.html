@@ -53,5 +53,21 @@
         <a href="https://youtu.be/thXZBhvRKs0?si=g_Ig5lMIhbBS9xwm" target="_blank">2min</a>
         <a href="https://youtu.be/vQbNB1ysFwo?si=XPVfO_m97sflF0u1" target="_blank">1min</a>
     </div>
+
+    
+<audio id="clickSound" src="click.mp3" preload="auto"></audio>
+
+    <script>
+        const clickSound = document.getElementById('clickSound');
+        const links = document.querySelectorAll('a');
+
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                clickSound.currentTime = 0;
+                clickSound.play();
+            });
+        });
+    </script>
 </body>
 </html>
+
