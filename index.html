@@ -14,6 +14,7 @@
             cursor: url('mouse-cursor.png'), auto;
             overflow: hidden; /* Neleisti žvaigždėms išeiti už ekrano ribų */
             position: relative;
+            height: 100vh; /* Užtikrina, kad turinys užimtų visą ekraną */
         }
 
         h1 {
@@ -79,6 +80,16 @@
             0% { transform: translateX(0); }
             100% { transform: translateX(-100%); }
         }
+
+        /* Parodyti tekstą dešiniajame apatiniame kampe */
+        .footer {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            font-size: 1em;
+            color: #ffffff;
+            opacity: 0.7;
+        }
     </style>
 </head>
 <body>
@@ -110,8 +121,6 @@
         <div class="star" style="top: 10%; left: 10%; width: 4px; height: 4px;"></div>
         <div class="star" style="top: 90%; left: 40%; width: 5px; height: 5px;"></div>
     </div>
-
-    <!-- Apačioje tekstas -->
     <div class="footer">
         by: NeDraugas
     </div>
