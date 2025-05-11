@@ -1,0 +1,25 @@
+<?php
+// Tikriname, ar duomenys yra perduoti per POST metodą
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Gauti vartotojo vardą ir slaptažodį iš formos
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    // Patikrinkite, ar vartotojas ir slaptažodis teisingi (pavyzdys)
+    // Galite užkoduoti slaptažodį ir patikrinti duomenų bazėje
+    if ($username == "admin" && $password == "slaptažodis123") {
+        echo "Prisijungta sėkmingai!";
+        
+        // Jei pasirinktas "Prisiminti mane", nustatome slaptažodžio slapuką
+        if (isset($_POST['login_cookie'])) {
+            setcookie("username", $username, time() + (86400 * 30), "/"); // 30 dienų
+        }
+
+        // Nukreipiamas į kitą puslapį (pvz., valdymo pultą)
+        header("Location: dashboard.php");
+        exit();
+    } else {
+        echo "Neteisingas vartotojo vardas arba slaptažodis.";
+    }
+}
+?>
