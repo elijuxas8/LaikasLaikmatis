@@ -6,19 +6,21 @@
     <link rel="icon" href="kanaloph.jpg" type="image/jpeg">
     <style>
         body {
-            background-color: #6a0dad;
-            color: white;
+            background: linear-gradient(135deg, #4B0082, #2E0854);
+            color: #B8FFB1;
             font-family: Arial, sans-serif;
             text-align: center;
             padding: 20px;
             cursor: url('mouse-cursor.png'), auto;
-            overflow: hidden; /* Neleisti žvaigždėms išeiti už ekrano ribų */
+            overflow: hidden;
             position: relative;
-            height: 100vh; /* Užtikrina, kad turinys užimtų visą ekraną */
+            height: 100vh;
         }
 
         h1 {
-            font-size: 2em;
+            font-size: 2.2em;
+            color: #00FF7F;
+            text-shadow: 0 0 10px #00FF7F;
         }
 
         .link-container {
@@ -26,74 +28,65 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
         }
 
         a {
-            font-size: 1em;
-            color: #ffffff;
+            font-size: 1.05em;
+            color: #00FF7F;
             text-decoration: none;
-            padding: 6px 14px;
-            border: 1px solid #ffffff;
-            border-radius: 4px;
-            width: fit-content;
-            transition: background-color 0.3s, transform 0.2s;
+            padding: 8px 20px;
+            border: 2px solid #00FF7F;
+            border-radius: 8px;
+            background-color: rgba(0, 255, 127, 0.1);
+            box-shadow: 0 0 10px #00FF7F33;
+            transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
         }
 
         a:hover {
-            background-color: #4b0082;
-            transform: scale(1.03);
+            background-color: #00FF7F;
+            color: #000000;
+            transform: scale(1.08);
+            box-shadow: 0 0 20px #00FF7F;
         }
 
-        /* Parodyti tekstą dešiniajame apatiniame kampe */
         .footer {
             position: absolute;
             bottom: 10px;
             right: 10px;
             font-size: 1em;
-            color: #ffffff;
-            opacity: 0.7;
-            transition: transform 0.2s; /* Animacija teksto padidinimui */
+            color: #00FF7F;
+            opacity: 0.8;
+            text-shadow: 0 0 6px #00FF7F;
         }
 
-        .footer:hover {
-            transform: scale(1.1); /* Padidinti tekstą užvedus pelę */
-        }
-
-        /* Judančios žvaigždės */
         .stars {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            pointer-events: none; /* Kad žvaigždės netrukdytų kitam turiniui */
-            z-index: -1; /* Kad žvaigždės būtų fone */
+            pointer-events: none;
+            z-index: -1;
         }
 
         .star {
             position: absolute;
-            background-color: white;
+            background-color: #00FF7F;
             border-radius: 50%;
+            box-shadow: 0 0 6px #00FF7F;
             animation: star-animation 1.5s infinite alternate;
         }
 
-        /* Animacija žvaigždžių judėjimui */
         @keyframes star-animation {
             0% {
-                opacity: 0.7;
-                transform: scale(0.5);
+                opacity: 0.6;
+                transform: scale(0.6);
             }
             100% {
                 opacity: 1;
                 transform: scale(1);
             }
-        }
-
-        /* Judėjimo animacija žvaigždėms */
-        @keyframes stars-animation {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-100%); }
         }
     </style>
 </head>
@@ -113,7 +106,7 @@
         <a href="https://youtu.be/thXZBhvRKs0?si=g_Ig5lMIhbBS9xwm" target="_blank">2min</a>
         <a href="https://youtu.be/vQbNB1ysFwo?si=XPVfO_m97sflF0u1" target="_blank">1min</a>
     </div>
-    
+
     <div class="stars">
         <div class="star" style="top: 20%; left: 30%; width: 4px; height: 4px;"></div>
         <div class="star" style="top: 10%; left: 70%; width: 3px; height: 3px;"></div>
@@ -125,18 +118,10 @@
         <div class="star" style="top: 30%; left: 60%; width: 4px; height: 4px;"></div>
         <div class="star" style="top: 10%; left: 10%; width: 4px; height: 4px;"></div>
         <div class="star" style="top: 90%; left: 40%; width: 5px; height: 5px;"></div>
+    </div>
+
     <div class="footer">
         by: NeDraugas
     </div>
-
-    <script>
-        const sound = document.getElementById("clickSound");
-        document.querySelectorAll("a").forEach(link => {
-            link.addEventListener("click", () => {
-                sound.currentTime = 0;
-                sound.play();
-            });
-        });
-    </script>
 </body>
 </html>
